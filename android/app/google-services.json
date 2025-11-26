@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "365757577024",
+    "project_id": "flutter-sec2-backend",
+    "storage_bucket": "flutter-sec2-backend.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:365757577024:android:c381a6bb24d0620ca46ca5",
+        "android_client_info": {
+          "package_name": "com.example.flutter_sec_2_backend"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBoMVt9bCHvhYzyGy4EGi99udaFTUyTmvg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
