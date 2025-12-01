@@ -26,7 +26,7 @@ class GetPriority extends StatelessWidget {
             return ListView.builder(
               itemBuilder: (BuildContext context, int index) {
                 return ListTile(
-                  leading: Icon(Icons.priority_high),
+                  leading: Icon(Icons.task),
                   title: Text(priorityList[index].name.toString()),
                   trailing: IconButton(onPressed: (){
                     Navigator.push(context, MaterialPageRoute(builder: (context)=>CreatePriority(model: PriorityTaskModel(), isUpdateMode: true)));
