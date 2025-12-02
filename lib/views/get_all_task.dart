@@ -4,6 +4,7 @@ import 'package:flutter_sec_2_backend/services/task.dart';
 import 'package:flutter_sec_2_backend/views/create_task.dart';
 import 'package:flutter_sec_2_backend/views/get_completed_task.dart';
 import 'package:flutter_sec_2_backend/views/get_incompleted_task.dart';
+import 'package:flutter_sec_2_backend/views/get_priority.dart';
 import 'package:flutter_sec_2_backend/views/update_task.dart';
 import 'package:provider/provider.dart';
 
@@ -24,6 +25,9 @@ class GetAllTask extends StatelessWidget {
           IconButton(onPressed: (){
             Navigator.push(context, MaterialPageRoute(builder: (context)=> GetInCompletedTask()));
           }, icon: Icon(Icons.incomplete_circle)),
+          IconButton(onPressed: (){
+            Navigator.push(context, MaterialPageRoute(builder: (context)=> GetPriority()));
+          }, icon: Icon(Icons.category)),
         ],
       ),
       floatingActionButton: FloatingActionButton(onPressed: (){

@@ -2,6 +2,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_sec_2_backend/views/create_task.dart';
 import 'package:flutter_sec_2_backend/views/get_all_task.dart';
+import 'package:flutter_sec_2_backend/views/get_priority.dart';
 
 void main()async {
   WidgetsFlutterBinding.ensureInitialized();

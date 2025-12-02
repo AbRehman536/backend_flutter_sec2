@@ -46,11 +46,14 @@ class PriorityServices {
   }
 
   //get Priority
-  Future<PriorityTaskModel> getPriority(){
+  Future<List<PriorityTaskModel>> getPriority(){
     return FirebaseFirestore.instance
         .collection(PriorityCollection)
         .get()
-        .then((taskList) => PriorityTaskModel.fromJson(taskList.data()!),
+        .then((priorityList) =>
+        priorityList.docs
+            .map((taskJson) => PriorityTaskModel.fromJson(taskJson.data()))
+            .toList()
     );
   }
 

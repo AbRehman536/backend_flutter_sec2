@@ -24,6 +24,7 @@ class GetPriority extends StatelessWidget {
           builder: (context, child){
             List<PriorityTaskModel> priorityList = context.watch<List<PriorityTaskModel>>();
             return ListView.builder(
+              itemCount: priorityList.length,
               itemBuilder: (BuildContext context, int index) {
                 return ListTile(
                   leading: Icon(Icons.task),
