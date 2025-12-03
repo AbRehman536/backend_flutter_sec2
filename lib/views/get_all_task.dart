@@ -3,6 +3,7 @@ import 'package:flutter_sec_2_backend/models/task.dart';
 import 'package:flutter_sec_2_backend/services/task.dart';
 import 'package:flutter_sec_2_backend/views/create_task.dart';
 import 'package:flutter_sec_2_backend/views/get_completed_task.dart';
+import 'package:flutter_sec_2_backend/views/get_favorite.dart';
 import 'package:flutter_sec_2_backend/views/get_incompleted_task.dart';
 import 'package:flutter_sec_2_backend/views/get_priority.dart';
 import 'package:flutter_sec_2_backend/views/update_task.dart';
@@ -28,6 +29,9 @@ class GetAllTask extends StatelessWidget {
           IconButton(onPressed: (){
             Navigator.push(context, MaterialPageRoute(builder: (context)=> GetPriority()));
           }, icon: Icon(Icons.category)),
+          IconButton(onPressed: (){
+            Navigator.push(context, MaterialPageRoute(builder: (context)=> GetFavorite()));
+          }, icon: Icon(Icons.favorite)),
         ],
       ),
       floatingActionButton: FloatingActionButton(onPressed: (){
@@ -60,6 +64,17 @@ class GetAllTask extends StatelessWidget {
                                 .showSnackBar(SnackBar(content: Text(e.toString())));
                           }
                         }, ),
+                      IconButton(onPressed: ()async{
+                        if(taskList[index].favorite!.contains("1")){
+                          await TaskServices().removeFromFavorite(
+                              userID: "1",
+                              taskID: taskList[index].docId.toString());
+                        }else{
+                          await TaskServices().addToFavorite(
+                              userID: "1",
+                              taskID: taskList[index].docId.toString());
+                        }
+                      }, icon: Icon(Icons.favorite)),
                       IconButton(onPressed: ()async{
                         try{
                           await TaskServices().deleteTask(taskList[index].docId.toString());
