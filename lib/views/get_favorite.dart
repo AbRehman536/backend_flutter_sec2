@@ -16,14 +16,14 @@ class GetFavorite extends StatelessWidget {
           value: TaskServices().getFavorite("1"),
           initialData: [TaskModel()],
           builder: (context, child){
-            List<TaskModel> favoriteList = context.watch<List<TaskModel>>();
+            List<TaskModel> taskList = context.watch<List<TaskModel>>();
             return ListView.builder(
               itemBuilder: (BuildContext context, int index) {
                 return
                     ListTile(
                       leading: Icon(Icons.favorite),
-                      title: Text(favoriteList[index].name.toString()),
-                      subtitle: Text(favoriteList[index].description.toString()),
+                      title: Text(taskList[index].name.toString()),
+                      subtitle: Text(taskList[index].description.toString()),
                     );
               },);
           },

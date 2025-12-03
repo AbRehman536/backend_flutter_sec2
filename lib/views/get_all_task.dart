@@ -74,7 +74,7 @@ class GetAllTask extends StatelessWidget {
                               userID: "1",
                               taskID: taskList[index].docId.toString());
                         }
-                      }, icon: Icon(Icons.favorite)),
+                      }, icon: Icon(taskList[index].favorite!.contains("1") ? Icons.favorite : Icons.favorite_border)),
                       IconButton(onPressed: ()async{
                         try{
                           await TaskServices().deleteTask(taskList[index].docId.toString());
