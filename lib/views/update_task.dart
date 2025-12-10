@@ -4,8 +4,8 @@ import '../models/task.dart';
 import '../services/task.dart';
 
 class UpdateTask extends StatefulWidget {
-  final TaskModel model;
-  const UpdateTask({super.key, required this.model});
+ final TaskModel model;
+  const UpdateTask({super.key, required this.model,});
 
   @override
   State<UpdateTask> createState() => _UpdateTaskState();
@@ -24,7 +24,6 @@ class _UpdateTaskState extends State<UpdateTask> {
     descriptionController = TextEditingController(
       text: widget.model.description.toString()
     );
-    super.initState();
   }
   @override
   Widget build(BuildContext context) {

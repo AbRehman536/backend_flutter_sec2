@@ -57,8 +57,9 @@ class GetAllTask extends StatelessWidget {
                         value: taskList[index].isCompleted,
                         onChanged: (bool? value) async{ 
                           try{
-                            await TaskServices().markAsCompleted( taskID:
-                                taskList[index].docId.toString(), isCompleted: value!);
+                            await TaskServices().markAsCompleted(
+                                taskID: taskList[index].docId.toString(),
+                                isCompleted: value!);
                           }catch(e){
                             ScaffoldMessenger.of(context)
                                 .showSnackBar(SnackBar(content: Text(e.toString())));
