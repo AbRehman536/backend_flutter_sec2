@@ -1,64 +1,55 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:flutter_sec_2_backend/models/priority.dart';
-import 'package:flutter_sec_2_backend/models/task.dart';
+
+import '../models/priority.dart';
 
 class PriorityServices {
-
-  String PriorityCollection = "priorityCollection";
-
-  //create Priority
-  Future createPriority(PriorityTaskModel model) async {
-    DocumentReference documentReference = FirebaseFirestore.instance
-        .collection(PriorityCollection)
+  ///Create Priority
+  Future createPriority(PriorityModel model) async {
+    DocumentReference docRef = FirebaseFirestore.instance
+        .collection('priorityCollection')
         .doc();
     return await FirebaseFirestore.instance
-        .collection(PriorityCollection)
-        .doc(documentReference.id)
-        .set(model.toJson(documentReference.id));
+        .collection('priorityCollection')
+        .doc(docRef.id)
+        .set(model.toJson(docRef.id));
   }
 
-  //update Priority
-  Future updatePriority(PriorityTaskModel model) async {
+  ///Update Priority
+  Future updatePriority(PriorityModel model) async {
     return await FirebaseFirestore.instance
-        .collection(PriorityCollection)
+        .collection('priorityCollection')
         .doc(model.docId)
-        .update({"name": model.name});
+        .update({'name': model.name});
   }
 
-  //delete Priority
-  Future deleteTask(String priorityID) async {
+  ///Delete Priority
+  Future deletePriority(String priorityID) async {
     return await FirebaseFirestore.instance
-        .collection(PriorityCollection)
+        .collection('priorityCollection')
         .doc(priorityID)
         .delete();
   }
 
-  //get All Task
-  Stream<List<PriorityTaskModel>> getAllPriority() {
+  ///Get All Priorities
+  Stream<List<PriorityModel>> getAllPriorities() {
     return FirebaseFirestore.instance
-        .collection(PriorityCollection)
+        .collection('priorityCollection')
         .snapshots()
-        .map((priorityList) =>
-        priorityList.docs
-            .map((taskJson) => PriorityTaskModel.fromJson(taskJson.data()))
-            .toList()
+        .map(
+          (list) => list.docs
+          .map((json) => PriorityModel.fromJson(json.data()))
+          .toList(),
     );
   }
-
-  //get Priority
-  Future<List<PriorityTaskModel>> getPriority(){
+  ///Get All Priorities
+  Future<List<PriorityModel>> getPriorities() {
     return FirebaseFirestore.instance
-        .collection(PriorityCollection)
+        .collection('priorityCollection')
         .get()
-        .then((priorityList) =>
-        priorityList.docs
-            .map((taskJson) => PriorityTaskModel.fromJson(taskJson.data()))
-            .toList()
+        .then(
+          (list) => list.docs
+          .map((json) => PriorityModel.fromJson(json.data()))
+          .toList(),
     );
   }
-
-}
-
-extension on QuerySnapshot<Map<String, dynamic>> {
-  data() {}
 }

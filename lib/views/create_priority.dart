@@ -3,7 +3,7 @@ import 'package:flutter_sec_2_backend/models/priority.dart';
 import 'package:flutter_sec_2_backend/services/priority.dart';
 
 class CreatePriority extends StatefulWidget {
-  final PriorityTaskModel model;
+  final PriorityModel model;
   final bool isUpdateMode;
   const CreatePriority({super.key, required this.model, required this.isUpdateMode});
 
@@ -38,7 +38,7 @@ class _CreatePriorityState extends State<CreatePriority> {
                 isLoading = true;
                 setState(() {});
                 if(widget.isUpdateMode == true){
-                  await PriorityServices().updatePriority(PriorityTaskModel(
+                  await PriorityServices().updatePriority(PriorityModel(
                     docId: widget.model.docId,
                     name: nameController.text.toString(),
                     createdAt: DateTime.now().millisecondsSinceEpoch
@@ -59,7 +59,7 @@ class _CreatePriorityState extends State<CreatePriority> {
                       },);
                   });
                 }else{
-                  await PriorityServices().createPriority(PriorityTaskModel(
+                  await PriorityServices().createPriority(PriorityModel(
                       name: nameController.text.toString(),
                       createdAt: DateTime.now().millisecondsSinceEpoch
                   )).then((val){

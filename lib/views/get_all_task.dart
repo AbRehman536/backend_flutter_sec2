@@ -6,6 +6,7 @@ import 'package:flutter_sec_2_backend/views/get_completed_task.dart';
 import 'package:flutter_sec_2_backend/views/get_favorite.dart';
 import 'package:flutter_sec_2_backend/views/get_incompleted_task.dart';
 import 'package:flutter_sec_2_backend/views/get_priority.dart';
+import 'package:flutter_sec_2_backend/views/profile.dart';
 import 'package:flutter_sec_2_backend/views/update_task.dart';
 import 'package:provider/provider.dart';
 
@@ -32,6 +33,9 @@ class GetAllTask extends StatelessWidget {
           IconButton(onPressed: (){
             Navigator.push(context, MaterialPageRoute(builder: (context)=> GetFavorite()));
           }, icon: Icon(Icons.favorite)),
+          IconButton(onPressed: (){
+            Navigator.push(context, MaterialPageRoute(builder: (context)=> Profile()));
+          }, icon: Icon(Icons.person_3_rounded)),
         ],
       ),
       floatingActionButton: FloatingActionButton(onPressed: (){

@@ -18,12 +18,12 @@ class _CreateTaskState extends State<CreateTask> {
 
   bool isLoading = false;
 
-  List<PriorityTaskModel> priorityList = [];
-  PriorityTaskModel? _selectedPriority;
+  List<PriorityModel> priorityList = [];
+  PriorityModel? _selectedPriority;
   @override
   void initState(){
-    PriorityServices().getPriority().then((val){
-      priorityList = val!;
+    PriorityServices().getPriorities().then((val){
+      priorityList = val;
       setState(() {});
     });
   }
@@ -39,16 +39,17 @@ class _CreateTaskState extends State<CreateTask> {
         TextField(controller: nameController,),
         TextField(controller: descriptionController,),
         DropdownButton(
-            hint: Text("Select Priority"),
+          hint: Text("Select Priority"),
             value: _selectedPriority,
-            items: priorityList.map((item){
+            items: priorityList.map((e){
               return DropdownMenuItem(
-                  child: Text(item.toString()));
+                  child: Text(e.toString()));
             }).toList(),
-            onChanged: (val){
-              _selectedPriority =val;
-              setState(() {});
-            }),
+          onChanged: (value) {
+            setState(() {
+              _selectedPriority = value;
+            });
+        }, ),
         isLoading ? Center(child: CircularProgressIndicator(),)
         :
         ElevatedButton(onPressed: ()async{

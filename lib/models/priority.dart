@@ -4,18 +4,18 @@
 
 import 'dart:convert';
 
-class PriorityTaskModel {
+class PriorityModel {
   final String? docId;
   final String? name;
   final int? createdAt;
 
-  PriorityTaskModel({
+  PriorityModel({
     this.docId,
     this.name,
     this.createdAt,
   });
 
-  factory PriorityTaskModel.fromJson(Map<String, dynamic> json) => PriorityTaskModel(
+  factory PriorityModel.fromJson(Map<String, dynamic> json) => PriorityModel(
     docId: json["docId"],
     name: json["name"],
     createdAt: json["createdAt"],
