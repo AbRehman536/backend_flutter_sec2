@@ -28,7 +28,7 @@ class GetPriority extends StatelessWidget {
               itemCount: priorityList.length,
               itemBuilder: (BuildContext context, int index) {
                 return ListTile(
-                  leading: Icon(Icons.task),
+                  leading: Icon(Icons.task_alt),
                   title: Text(priorityList[index].name.toString()),
                   trailing: Row(
                     mainAxisSize: MainAxisSize.min,
