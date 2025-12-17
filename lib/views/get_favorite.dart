@@ -13,7 +13,7 @@ class GetFavorite extends StatelessWidget {
         title: Text("Get Favorite"),
       ),
       body: StreamProvider.value(
-          value: TaskServices().getFavorite("1"),
+          value: TaskServices().getFavoriteTask("1"),
           initialData: [TaskModel()],
           builder: (context, child){
             List<TaskModel> taskList = context.watch<List<TaskModel>>();
